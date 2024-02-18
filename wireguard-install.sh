@@ -22,7 +22,11 @@ fi
 
 # Detect OS
 # $os_version variables aren't always in use, but are kept here for convenience
-if grep -qs "ubuntu" /etc/os-release; then
+
+if grep -qs "kali" /etc/os-release; then
+	os="debian"
+	os_version=11
+elif grep -qs "ubuntu" /etc/os-release; then
 	os="ubuntu"
 	os_version=$(grep 'VERSION_ID' /etc/os-release | cut -d '"' -f 2 | tr -d '.')
 elif [[ -e /etc/debian_version ]]; then
